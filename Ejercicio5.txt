@@ -1,0 +1,42 @@
+public static void ejercicio5() {
+		int[][] array = {{0,0,0,0,0},{0,0,0,0,0},{0,0,0,0,0}};
+		Scanner teclado = new Scanner(System.in);
+		
+		for (int i = 0; i < 3; i++) {
+			for(int j = 0; j < 5; j++) {
+				System.out.println("Trimestre:" + i + " Alumno: " + j);
+				array[i][j] = teclado.nextInt();
+			}
+		}
+		
+		System.out.println("Nota media del grupo en cada trimestre");
+		for(int i = 0;i<array.length;i++) {
+			System.out.println("Trimestre "+i+": " + notaMediaT(array[i]));
+		}
+		
+		System.out.println("Imprime el alumno que quieres ver: ");
+		int alumno = teclado.nextInt();
+		
+		System.out.println("El alumno " + alumno + " tiene nota media: " + notaMediaA(array,alumno));
+		
+		teclado.close();
+		
+	}
+	
+	public static int notaMediaT(int[] array) {
+		
+		int suma = 0;
+		for(int i = 0; i < array.length;i++) {
+			suma += array[i];
+		}
+		return suma / array.length;	
+	}
+	
+	public static int notaMediaA(int[][] array,int n) {
+		
+		int suma = 0;
+		for(int i = 0;i < array.length; i++) {
+			suma += array[i][n];
+		}
+		return suma / array.length;
+	}
